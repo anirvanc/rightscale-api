@@ -12,7 +12,7 @@ NOTE: The API 1.5 functions are not quite finished but can be used for reference
 
 **USE THESE SCRIPTS AT YOUR OWN RISK!**
 
-Please **please** do not run them if you don't understand what the code is doing.
+Please **please** do not run them if you don't understand exactly what the code is doing. I cannot accept any responsibility for any loss of service these scripts cause you.
 
 Example usage:
 
