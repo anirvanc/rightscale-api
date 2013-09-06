@@ -1,5 +1,5 @@
-rightscale
-==========
+rightscale-api
+==============
 Includes a number of mainly BASH scripts using cURL against the Rightscale API.
 The first lot are for controlling security groups.
 
