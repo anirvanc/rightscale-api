@@ -60,7 +60,7 @@ case $result in
 		then
 		  echo "$result"
 		else
-		  echo
+		  echo "$result" | grep "<href>" | cut -d"/" -f8 | cut -d"<" -f1
 		fi
 		exit
 	;;

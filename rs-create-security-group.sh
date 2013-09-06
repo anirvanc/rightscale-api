@@ -69,7 +69,7 @@ case $result in
 		then
 		  echo "$result"
 		else
-		  echo "not verbose"
+		  echo "$result" | grep "Location:" | cut -d"/" -f8
 		fi
 		exit
 	;;
