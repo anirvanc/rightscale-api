@@ -8,6 +8,8 @@
 # http://support.rightscale.com/12-Guides/RightScale_API_1.5/Examples/Security_Groups/List_Security_Groups
 # http://reference.rightscale.com/api1.5/resources/ResourceSecurityGroups.html
 
+# TIP: ./rs-update-security-group.sh $(./rs-list-security-groups.sh 2 SGNAME) 0.0.0.0/0 tcp 22 22
+
 if [ $# -ne 5 ]
 then
         echo "Usage  : $0 RS_SG_ID SG_CIDR_IPS SG_PROTOCOL SG_FROM_PORT SG_TO_PORT"
