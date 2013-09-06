@@ -8,11 +8,11 @@ Authentication setup and config is taken from Rightscale's own 1.0/1.5 examples:
 http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples
 http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication
 
-NOTE: The API 1.5 examples are not finished.
+NOTE: The API 1.5 functions are not quite finished but can be used for reference.
 
 **USE THESE SCRIPTS AT YOUR OWN RISK!**
 
-Do not run them if you don't understand what the code is doing.
+Please **please** do not run them if you don't understand what the code is doing.
 
 Example usage:
 
