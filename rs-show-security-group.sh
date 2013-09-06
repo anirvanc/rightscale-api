@@ -10,12 +10,12 @@
 
 case $# in
    1) VERBOSE="false"    # VERBOSE off
-      RS_SG_ID=$1        # ec2_security_group[aws_group_name], mandatory
+      RS_SG_ID=$1        # rightscale secgroup ID
       ;;
    2) if [ $1 == "-v" ] 
       then 
 	     VERBOSE="true"  # VERBOSE on
-		 RS_SG_ID=$2     # ec2_security_group[aws_group_name], mandatory
+		 RS_SG_ID=$2     # rightscale secgroup ID
 	  else
 	     echo "Unrecognized parameter"
 		 exit 1

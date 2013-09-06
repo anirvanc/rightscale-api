@@ -16,7 +16,7 @@ then
 fi
 
 # Parameters:
-RS_SG_ID=$1     # ec2_security_group[aws_group_name], mandatory
+RS_SG_ID=$1     # rightscale secgroup ID
 SG_CIDR_IPS=$2  # ec2_security_group[cidr_ips], mandatory (IP range (e.g. 192.168.0.1/8))
 SG_PROTOCOL=$3  # ec2_security_group[protocol], mandatory (‘tcp’, ‘udp’ or ‘icmp’)
 SG_FROM_PORT=$4 # ec2_security_group[from_port], mandatory (Port range lower bound)
