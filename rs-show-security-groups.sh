@@ -1,8 +1,6 @@
 #!/bin/sh -e
-EMAIL="rightscale01@moneysupermarket.com"   # The email address for your RightScale User in the Dashboard
-PWD="M0r3servers?"                         # Your User's password
-ACCOUNT="70082"                             # Account ID, easily obtained from navigation in the Dashboard
-APIVER="1.0"                                # API version to use. TODO: add as parameter
+
+rs-show-security-groups.sh
 
 case "$APIVER" in
   "1.0") echo 1.0
