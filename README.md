@@ -1,5 +1,4 @@
 rightscale
-============
-
-TODO: Add security groups BASH wrapper scripts
-TODO: Add load balancer BASH wrapper scripts
+==========
+Includes a number of mainly BASH scripts using cURL against the Rightscale API.
+The first lot are for controlling EC2 security groups.
