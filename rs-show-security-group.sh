@@ -27,9 +27,6 @@ case $# in
       ;;
 esac
 
-# Parameters:
-#RS_SG_ID=$1     # ec2_security_group[aws_group_name], mandatory
-
 . "$HOME/.rightscale/rs_api_config.sh"
 . "$HOME/.rightscale/rs_api_creds.sh"
 

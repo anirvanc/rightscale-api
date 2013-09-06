@@ -11,21 +11,21 @@
 case $# in
    3) VERBOSE="false"   # VERBOSE off
 	  RS_CLOUD_ID=$1    # cloud_id: Id of the cloud in which the security group should be created e.g AWS EU: 2
-      SG_GROUP_NAME=$2  # ec2_security_group[aws_group_name], mandatory
-      SG_GROUP_DESC=$3  # ec2_security_group[aws_description], mandatory
+      SG_NAME=$2  # ec2_security_group[aws_group_name], mandatory
+      SG_DESC=$3  # ec2_security_group[aws_description], mandatory
       ;;
    4) if [ $1 == "-v" ] 
       then 
 	    VERBOSE="true"    # VERBOSE on
 	    RS_CLOUD_ID=$2    # cloud_id: Id of the cloud in which the security group should be created e.g AWS EU: 2
-        SG_GROUP_NAME=$3  # ec2_security_group[aws_group_name], mandatory
-        SG_GROUP_DESC=$4  # ec2_security_group[aws_description], mandatory
+        SG_NAME=$3  # ec2_security_group[aws_group_name], mandatory
+        SG_DESC=$4  # ec2_security_group[aws_description], mandatory
 	  else
 	     echo "Unrecognized parameter"
 		 exit 1
 	  fi
 	  ;;
-   *) echo "Usage  : $0 [-v] RS_CLOUD_ID SG_GROUP_NAME SG_GROUP_DESC"
+   *) echo "Usage  : $0 [-v] RS_CLOUD_ID SG_NAME SG_DESC"
       echo "Example: $0 -v 2 sgtest 'Test security group'"
       exit 1
       ;;
@@ -41,8 +41,8 @@ case $RS_API_VERSION in
 		   echo "[API 1.0] POST: $URL"
 		 fi
 		 result=$(curl -s -S -i -k -H X-API-VERSION:$RS_API_VERSION -b $RS_API_COOKIE \
-		 -d "ec2_security_group[aws_group_name]=$SG_GROUP_NAME" \
-		 -d "ec2_security_group[aws_description]=$SG_GROUP_DESC" \
+		 -d "ec2_security_group[aws_group_name]=$SG_NAME" \
+		 -d "ec2_security_group[aws_description]=$SG_DESC" \
 		 -d "cloud_id=$RS_CLOUD_ID" \
 		 $URL 2>&1)
 		 ;;
@@ -54,8 +54,8 @@ case $RS_API_VERSION in
 		   echo "[API 1.5] POST: $URL"
 		 fi
 		 result=$(curl -s -S -i -k -H X-API-VERSION:$RS_API_VERSION -b $RS_API_COOKIE \
-		 -d "security_group[name]=$SG_GROUP_NAME" \
-		 -d "security_group[description]=$SG_GROUP_DESC" \
+		 -d "security_group[name]=$SG_NAME" \
+		 -d "security_group[description]=$SG_DESC" \
 		 $URL 2>&1)
 	     ;;
       *) echo ERROR: RS_API_VERSION not valid
