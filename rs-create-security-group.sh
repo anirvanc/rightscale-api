@@ -24,22 +24,22 @@ SG_GROUP_DESC=$3  # ec2_security_group[aws_description], mandatory
 . "$HOME/.rightscale/rs_api_creds.sh"
 
 case $RS_API_VERSION in
-  "1.0") url="https://my.rightscale.com/api/acct/$RS_API_ACCOUNT_ID/ec2_security_groups"
-         echo "[API 1.0] POST: $url"
+  "1.0") URL="https://my.rightscale.com/api/acct/$RS_API_ACCOUNT_ID/ec2_security_groups"
+         echo "[API 1.0] POST: $URL"
 		 result=$(curl -s -S -i -k -H X-API-VERSION:$RS_API_VERSION -b $RS_API_COOKIE \
 		 -d "ec2_security_group[aws_group_name]=$SG_GROUP_NAME" \
 		 -d "ec2_security_group[aws_description]=$SG_GROUP_DESC" \
 		 -d "cloud_id=$RS_CLOUD_ID" \
-		 $url 2>&1)
+		 $URL 2>&1)
 		 ;;
   "1.5") 
          # UNTESTED
-		 #url="https://my.rightscale.com/api/clouds/$RS_CLOUD_ID/security_groups"
-		 #echo "[API 1.5] POST: $url"
-		 #result=$(curl -s -S -i -k -H X-API-VERSION:$RS_API_VERSION -b $RS_API_COOKIE \
-		 #-d "security_group[name]=$SG_GROUP_NAME" \
-		 #-d "security_group[description]=$SG_GROUP_DESC" \
-		 #$url 2>&1)
+		 URL="https://my.rightscale.com/api/clouds/$RS_CLOUD_ID/security_groups"
+		 echo "[API 1.5] POST: $URL"
+		 result=$(curl -s -S -i -k -H X-API-VERSION:$RS_API_VERSION -b $RS_API_COOKIE \
+		 -d "security_group[name]=$SG_GROUP_NAME" \
+		 -d "security_group[description]=$SG_GROUP_DESC" \
+		 $URL 2>&1)
 	     ;;
       *) echo ERROR: RS_API_VERSION not set
 	     exit 1
