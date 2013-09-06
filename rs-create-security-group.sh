@@ -41,7 +41,7 @@ case $RS_API_VERSION in
 		 -d "security_group[description]=$SG_GROUP_DESC" \
 		 $URL 2>&1)
 	     ;;
-      *) echo ERROR: RS_API_VERSION not set
+      *) echo ERROR: RS_API_VERSION not valid
 	     exit 1
 	     ;;
 esac

@@ -49,7 +49,7 @@ case $RS_API_VERSION in
 		 -d "security_group_rule[protocol_details][end_port]=$SG_TO_PORT" \
 		 $URL 2>&1)
 	     ;;
-      *) echo ERROR: RS_API_VERSION not set
+      *) echo ERROR: RS_API_VERSION not valid
 	     exit 1
 	     ;;
 esac

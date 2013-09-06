@@ -31,7 +31,7 @@ case $RS_API_VERSION in
          #URL="https://my.rightscale.com/api/clouds/$RS_CLOUD_ID/security_groups.xml"
 		 #result=$(curl -s -S -i -k -H X_API_VERSION:$RS_API_VERSION -b $RS_API_COOKIE -X GET $URL 2>&1)
 	     ;;
-      *) echo ERROR: RS_API_VERSION not set
+      *) echo ERROR: RS_API_VERSION not valid
 	     exit 1
 	     ;;
 esac
