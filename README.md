@@ -1,11 +1,12 @@
 rightscale-api
 ==============
 Includes a number of mainly BASH scripts using cURL against the Rightscale API.
+The first lot are for controlling security groups.
+
 Authentication setup and config is taken from Rightscale's own 1.0/1.5 examples:
+
 http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples
 http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication
-
-The first lot are for controlling security groups.
 
 NOTE: The API 1.5 examples are not finished.
 
