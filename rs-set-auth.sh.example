@@ -1,0 +1,31 @@
+#!/bin/sh -e
+
+# rs-set-auth.sh
+# REFERENCE: http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples
+
+# Stores vars for Rightscale logins and creates scripts that populate env vars
+# Variables below should be set in a RightScript for security and 
+# this script run once at boot
+# TSM tweak - chmod
+# TODO: Enable RS_API_VERSION to be set by param
+
+RS_API_VERSION=1.0
+RS_API_ACCOUNT_ID=99999
+RS_API_USER=user@blah.com
+RS_API_PASSWORD=P@ssword
+
+mkdir -p "$HOME/.rightscale"
+chmod 700 "$HOME/.rightscale"
+
+cat <<EOF> "$HOME/.rightscale/rs_api_config.sh"
+RS_API_VERSION=$RS_API_VERSION
+RS_API_COOKIE="$HOME/.rightscale/rsauth"
+EOF
+chmod 700 $HOME/.rightscale/rs_api_config.sh
+
+cat <<EOF> "$HOME/.rightscale/rs_api_creds.sh"
+RS_API_ACCOUNT_ID=$RS_API_ACCOUNT_ID
+RS_API_USER="$RS_API_USER"
+RS_API_PASSWORD="$RS_API_PASSWORD"
+EOF
+chmod 700 $HOME/.rightscale/rs_api_creds.sh
