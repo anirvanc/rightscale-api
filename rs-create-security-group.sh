@@ -9,7 +9,7 @@
 # http://reference.rightscale.com/api1.5/resources/ResourceSecurityGroups.html
 
 # Parameters:
-cloud_id="2"           # cloud_id: Id of the cloud in which the security group should be created e.g AWS EU: 2
+rs_cloud_id="2"        # cloud_id: Id of the cloud in which the security group should be created e.g AWS EU: 2
 sg_group_name="SGTest" # ec2_security_group[aws_group_name], mandatory
 sg_group_desc="SGTest" # ec2_security_group[aws_description], mandatory
 
@@ -22,11 +22,17 @@ case $rs_api_version in
 		 result=$(curl -s -S -i -k -H X-API-VERSION:$rs_api_version -b $rs_api_cookie \
 		 -d "ec2_security_group[aws_group_name]=$sg_group_name" \
 		 -d "ec2_security_group[aws_description]=$sg_group_desc" \
-		 -d "cloud_id=$cloud_id" \
+		 -d "cloud_id=$rs_cloud_id" \
 		 $url 2>&1)
 		 ;;
   "1.5") 
-         #echo "[API 1.5] GET: $url"
+         # UNTESTED
+		 #url="https://my.rightscale.com/api/clouds/$rs_cloud_id/security_groups"
+		 #echo "[API 1.5] POST: $url"
+		 #result=$(curl -s -S -i -k -H X-API-VERSION:$rs_api_version -b $rs_api_cookie \
+		 #-d "security_group[name]=$sg_group_name" \
+		 #-d "security_group[description]=$sg_group_desc" \
+		 #$url 2>&1)
 	     ;;
       *) echo ERROR: rs_api_version not set
 	     exit 1
