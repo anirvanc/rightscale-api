@@ -1,6 +1,10 @@
 rightscale-api
 ==============
 Includes a number of mainly BASH scripts using cURL against the Rightscale API.
+Authentication setup and config is taken from Rightscale's own 1.0/1.5 examples:
+http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples
+http://support.rightscale.com/12-Guides/03-RightScale_API/RightScale_API_Examples/Authentication
+
 The first lot are for controlling security groups.
 
 NOTE: The API 1.5 examples are not finished.
@@ -25,6 +29,10 @@ Edit rs-set-auth.sh
     # vim rs-set-auth.sh
     # RS_API_VERSION=1.0   # For EC2 connections
     # RS_API_VERSION=1.5   # For any other cloud
+Run rs-set-auth.sh (creates the scripts which, in turn,
+create the environment variables)
+
+    ./rs-set-auth.sh
 Run rs-login.sh
 
     ./rs-login.sh
