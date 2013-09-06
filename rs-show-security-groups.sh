@@ -1,24 +1,40 @@
 #!/bin/sh -e
 
-rs-show-security-groups.sh
+# rs-show-security-groups.sh
+# REQUIRES rs-login.sh to be run previously
 
-case "$APIVER" in
-  "1.0") echo 1.0
-  URL="https://my.rightscale.com/api/acct/$ACCOUNT/ec2_security_groups"
-         curl -i -k -H X-API-VERSION:1.0 -c ~/rsauth -u $EMAIL:$PWD https://my.rightscale.com/api/acct/$ACCOUNT/login 
-		curl -i -k -H X-API-VERSION:1.0 -b ~/rsauth $URL
-		;;
-  "1.5") echo 1.5
-         curl -i -k -H X_API_VERSION:1.5 -c ~/rsauth -X POST -d email=$EMAIL -d password=$PWD -d account_href=/api/accounts/$ACCOUNT https://my.rightscale.com/api/session
+# REFERENCE:
+# http://reference.rightscale.com/api1.0/ApiR1V0/Docs/ApiEc2SecurityGroups.html
+# http://support.rightscale.com/12-Guides/RightScale_API_1.5/Examples/Security_Groups/List_Security_Groups
+# 
+
+. "$HOME/.rightscale/rs_api_config.sh"
+. "$HOME/.rightscale/rs_api_creds.sh"
+
+case $rs_api_version in
+  "1.0") url="https://my.rightscale.com/api/acct/$rs_api_account_id/ec2_security_groups"
+         echo "[API 1.0] GET: $url"
+		 result=$(curl -i -k -H X-API-VERSION:$rs_api_version -b $rs_api_cookie $url 2>&1)
+		 ;;
+  "1.5") 
+         #echo "[API 1.5] GET: $url"
+		 #rs_cloud_id="70082" # e.g. 70082: Rackspace Open Cloud - London
+         #url="https://my.rightscale.com/api/clouds/$rs_cloud_id/security_groups.xml"
+		 #result=$(curl -S -i -k -H X_API_VERSION:$rs_api_version -b $rs_api_cookie -X GET $url 2>&1)
 	     ;;
-      *) echo APIVER not set.
+      *) echo ERROR: rs_api_version not set
 	     exit 1
 	     ;;
 esac
-# Login and store auth in cookie jar ~/rsauth
-#
 
-#curl -i -k -H X_API_VERSION:1.5 -b ~/rsauth -X GET https://my.rightscale.com/api/clouds.xml
+case $result in
+	*'200 OK'*)
+		echo "$result"
+		exit
+	;;
+	*)
+		echo "$result"
+		exit 1
+	;;
+esac
 
-#CLOUD="2"
-#curl -i -k -H X_API_VERSION:1.5 -b ~/rsauth -X GET https://my.rightscale.com/api/clouds/$CLOUD/security_groups.xml
