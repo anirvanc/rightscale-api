@@ -30,6 +30,9 @@ Edit rs-set-auth.sh
     # vim rs-set-auth.sh
     # RS_API_VERSION=1.0   # For EC2 connections
     # RS_API_VERSION=1.5   # For any other cloud
+    # RS_API_ACCOUNT_ID=<your Rightscale account ID>
+    # RS_API_USER=<your Rightscale user name/email address>
+    # RS_API_PASSWORD=<your Rightscale password>
 Run rs-set-auth.sh (creates the scripts which, in turn,
 create the environment variables)
 
