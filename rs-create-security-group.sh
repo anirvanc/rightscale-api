@@ -10,8 +10,8 @@
 
 # Parameters:
 rs_cloud_id="2"        # cloud_id: Id of the cloud in which the security group should be created e.g AWS EU: 2
-sg_group_name="SGTest" # ec2_security_group[aws_group_name], mandatory
-sg_group_desc="SGTest" # ec2_security_group[aws_description], mandatory
+sg_group_name="sgtest" # ec2_security_group[aws_group_name], mandatory
+sg_group_desc="sgtest" # ec2_security_group[aws_description], mandatory
 
 . "$HOME/.rightscale/rs_api_config.sh"
 . "$HOME/.rightscale/rs_api_creds.sh"
